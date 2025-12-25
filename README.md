@@ -1,15 +1,61 @@
-# Nueva Librería (Adaptador) Freshchat
+# FreshChat Widget Adapter
 
-El objetivo de este proyecto es generar una **librería** más amigable para Freshchat, que tiene una librería muy complicada de usar. La idea es que esta nueva librería esté basada en **casos de uso** más cotidianos, con métodos como `login`, `logout`, `changeUser`, en vez de los métodos complejos y viejos con los que actualmente cuenta.
+## Motivación
 
-De esta manera, creando una nueva librería debería ser más fácil implementar en otros proyectos o frameworks que es lo mas importante y lo que se busca finalmente.
+Freshchat provee una librería oficial para la integración de su widget en aplicaciones web. Sin embargo, su API resulta poco intuitiva y difícil de usar en escenarios comunes, ya que expone métodos antiguos, verbosos y poco alineados con los casos de uso más habituales de una aplicación moderna.
 
-## Directorios
+Esto genera fricción al momento de implementar funcionalidades simples como iniciar sesión, cerrar sesión o cambiar el usuario activo.
 
-- **freshchat-app** (directorio donde se desarrollará la nueva librería)
-- **template** (directorio de ejemplo con un caso de uso similar obtenido desde [aquí](https://community.freshworks.dev/t/integration-of-freshchat-with-react-web/11153/12))
+## Objetivo
 
-# Ideas de estructura de la librería
+El objetivo de este proyecto es crear una librería adaptadora que abstraiga la complejidad de la API oficial de Freshchat y exponga una interfaz más simple, clara y orientada a casos de uso cotidianos.
+
+La nueva API estará basada en métodos como:
+
+- `login`
+
+- `logout`
+
+- `changeUser`
+
+En lugar de los métodos complejos y poco claros que ofrece actualmente la librería oficial.
+
+De esta manera, la integración de Freshchat será más sencilla, reutilizable y fácil de mantener en distintos proyectos o frameworks.
+
+## Uso básico
+
+Ejemplo de uso básico del adaptador:
+
+```ts
+import { FreshChatWidget } from "freshchat-widget-adapter";
+
+const widget = new FreshChatWidget();
+
+widget.login({
+  externalId: "user-123",
+  restoreId: "restore-abc",
+});
+```
+
+Para cerrar sesión:
+
+```ts
+widget.logout();
+```
+
+## Estructura del proyecto
+
+```txt
+.
+├── freshchat-app
+│   └── Código fuente de la librería
+│
+├── template
+│   └── Proyecto de ejemplo basado en un caso real de uso
+│       obtenido desde la comunidad de Freshworks (https://community.freshworks.dev/t/integration-of-freshchat-with-react-web/11153/12)
+
+```
+# Arquitectura (ideas iniciales)
 
 ## Idea 1
 
@@ -25,7 +71,7 @@ export class FreshChatWidget {
 }
 ```
 
-## Idea 2 (lo mismo, pero aprovechar clase ya existente)
+## Idea 2 (lo mismo, pero aprovechando clase ya existente)
 
 ```ts
 import type { WidgetService } from "./widget-service";
