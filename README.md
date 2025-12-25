@@ -48,13 +48,23 @@ widget.logout();
 ```txt
 .
 ├── freshchat-app
-│   └── Código fuente de la librería
+│   └── Código fuente de la librería (esta hecho en vite y no necesita variables de entorno)
 │
-├── template
+├── template (esta hecho en create react app y no necesita variables de entorno)
 │   └── Proyecto de ejemplo basado en un caso real de uso
 │       obtenido desde la comunidad de Freshworks (https://community.freshworks.dev/t/integration-of-freshchat-with-react-web/11153/12)
 
 ```
+## Ambientación (instrucciones en el readme.md dentro de cada directorio)
+
+Este repositorio contiene dos entornos principales:
+
+- **freshchat-app**  
+  Corresponde al desarrollo de la librería. Está construido utilizando **Vite**.
+
+- **template**  
+  Corresponde a un proyecto de ejemplo que consume la librería. Está construido utilizando **Create React App (CRA)** y representa un caso de uso real de integración del widget de Freshchat en una aplicación React.
+
 # Arquitectura (ideas iniciales)
 
 ## Idea 1
