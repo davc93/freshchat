@@ -42,7 +42,7 @@ export class UserAPIRest {
       userId: "email2@gmail.com",
       name: "email2@gmail.com (chat not available)",
       restoreId: "8c526ed0-d384-4af7-a8ba-d2df1a0fc4e8",
-      enabled: false,
+      enabled: true,
     },
 
     {
@@ -50,17 +50,23 @@ export class UserAPIRest {
       name: "email3@gmail.com (usuario nuevo)",
       enabled: true,
     },
+    {
+      userId: "email4@gmail.com",
+      name: "email4@gmail.com (chat not available)",
+      restoreId: "8c526ed0-d384-4af7-a8ba-d2df1a0fc4e8",
+      enabled: false,
+    },
   ];
   static async getUserInfo(userId: string) {
-    await delay(2 * 1000);
+    await delay(100);
     const userFinded = this.users.find((user) => user.userId == userId);
     if (!userFinded) {
       throw new Error("user not founded");
     }
     return userFinded;
   }
-  static  getUsers = async ()=> {
+  static getUsers = async () => {
     await delay(2 * 1000);
     return this.users;
-  }
+  };
 }
